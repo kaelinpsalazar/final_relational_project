@@ -1,0 +1,602 @@
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.6ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 20:25:06.159018"], ["updated_at", "2024-07-09 20:25:06.159018"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.2ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["created_at", "2024-07-09 20:25:06.160609"], ["updated_at", "2024-07-09 20:25:06.160609"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Create (1.1ms)[0m  [1m[32mINSERT INTO "books" ("title", "genre", "is_published", "publication_year", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "The Way of Kings"], ["genre", "Fantasy"], ["is_published", true], ["publication_year", 2010], ["author_id", 467], ["created_at", "2024-07-09 20:25:06.168633"], ["updated_at", "2024-07-09 20:25:06.168633"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Create (0.2ms)[0m  [1m[32mINSERT INTO "books" ("title", "genre", "is_published", "publication_year", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "The Eye of the World"], ["genre", "Fantasy"], ["is_published", true], ["publication_year", 1990], ["author_id", 468], ["created_at", "2024-07-09 20:25:06.170232"], ["updated_at", "2024-07-09 20:25:06.170232"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/books" for 127.0.0.1 at 2024-07-09 14:25:06 -0600
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  Rendered books/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 538)
+  Rendered layout layouts/application.html.erb (Duration: 100.0ms | Allocations: 90920)
+Completed 200 OK in 109ms (Views: 102.1ms | ActiveRecord: 0.3ms | Allocations: 97896)
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (22.5ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "John Smith"], ["deceased", nil], ["age", nil], ["created_at", "2024-07-09 20:25:06.328131"], ["updated_at", "2024-07-09 20:25:06.328131"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors/469" for 127.0.0.1 at 2024-07-09 14:25:06 -0600
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"469"}
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 469], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 122)
+  Rendered layout layouts/application.html.erb (Duration: 0.4ms | Allocations: 755)
+Completed 200 OK in 12ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 1508)
+  [1m[36mTRANSACTION (34.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.5ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 20:27:26.134888"], ["updated_at", "2024-07-09 20:27:26.134888"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.2ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["created_at", "2024-07-09 20:27:26.136474"], ["updated_at", "2024-07-09 20:27:26.136474"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "genre", "is_published", "publication_year", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "The Way of Kings"], ["genre", "Fantasy"], ["is_published", true], ["publication_year", 2010], ["author_id", 470], ["created_at", "2024-07-09 20:27:26.169878"], ["updated_at", "2024-07-09 20:27:26.169878"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Create (0.3ms)[0m  [1m[32mINSERT INTO "books" ("title", "genre", "is_published", "publication_year", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "The Eye of the World"], ["genre", "Fantasy"], ["is_published", true], ["publication_year", 1990], ["author_id", 471], ["created_at", "2024-07-09 20:27:26.171170"], ["updated_at", "2024-07-09 20:27:26.171170"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/books" for 127.0.0.1 at 2024-07-09 14:27:26 -0600
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  Rendered books/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 539)
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 31885)
+Completed 200 OK in 23ms (Views: 18.2ms | ActiveRecord: 0.3ms | Allocations: 37650)
+  [1m[36mTRANSACTION (14.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (23.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (23.6ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "John Smith"], ["deceased", nil], ["age", nil], ["created_at", "2024-07-09 20:27:26.236770"], ["updated_at", "2024-07-09 20:27:26.236770"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors/472" for 127.0.0.1 at 2024-07-09 14:27:26 -0600
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"472"}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 472], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 118)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | Allocations: 750)
+Completed 200 OK in 52ms (Views: 1.1ms | ActiveRecord: 0.4ms | Allocations: 1503)
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 20:30:57.198638"], ["updated_at", "2024-07-09 20:30:57.198638"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.1ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["created_at", "2024-07-09 20:30:57.199884"], ["updated_at", "2024-07-09 20:30:57.199884"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Create (1.1ms)[0m  [1m[32mINSERT INTO "books" ("title", "genre", "is_published", "publication_year", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "The Way of Kings"], ["genre", "Fantasy"], ["is_published", true], ["publication_year", 2010], ["author_id", 473], ["created_at", "2024-07-09 20:30:57.210555"], ["updated_at", "2024-07-09 20:30:57.210555"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Create (0.2ms)[0m  [1m[32mINSERT INTO "books" ("title", "genre", "is_published", "publication_year", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "The Eye of the World"], ["genre", "Fantasy"], ["is_published", true], ["publication_year", 1990], ["author_id", 474], ["created_at", "2024-07-09 20:30:57.212808"], ["updated_at", "2024-07-09 20:30:57.212808"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors" for 127.0.0.1 at 2024-07-09 14:30:57 -0600
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  Rendered authors/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 495)
+  Rendered layout layouts/application.html.erb (Duration: 17.2ms | Allocations: 31788)
+Completed 200 OK in 25ms (Views: 19.9ms | ActiveRecord: 0.1ms | Allocations: 37520)
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (31.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (2.6ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 20:30:57.327124"], ["updated_at", "2024-07-09 20:30:57.327124"]]
+  [1m[36mTRANSACTION (58.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mAuthor Load (16.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (11.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (12.0ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["created_at", "2024-07-09 20:30:57.406014"], ["updated_at", "2024-07-09 20:30:57.406014"]]
+  [1m[36mTRANSACTION (12.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO "books" ("title", "genre", "is_published", "publication_year", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "The Way of Kings"], ["genre", "Fantasy"], ["is_published", true], ["publication_year", 2010], ["author_id", 475], ["created_at", "2024-07-09 20:30:57.431452"], ["updated_at", "2024-07-09 20:30:57.431452"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "genre", "is_published", "publication_year", "author_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "The Eye of the World"], ["genre", "Fantasy"], ["is_published", true], ["publication_year", 1990], ["author_id", 476], ["created_at", "2024-07-09 20:30:57.432506"], ["updated_at", "2024-07-09 20:30:57.432506"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors" for 127.0.0.1 at 2024-07-09 14:30:57 -0600
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  Rendered authors/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 156)
+  Rendered layout layouts/application.html.erb (Duration: 0.8ms | Allocations: 790)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 1001)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.5ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "John Smith"], ["deceased", nil], ["age", nil], ["created_at", "2024-07-09 20:30:57.438443"], ["updated_at", "2024-07-09 20:30:57.438443"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors/477" for 127.0.0.1 at 2024-07-09 14:30:57 -0600
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"477"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 477], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 115)
+  Rendered layout layouts/application.html.erb (Duration: 0.5ms | Allocations: 745)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 1334)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.4ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 20:31:44.571659"], ["updated_at", "2024-07-09 20:31:44.571659"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.2ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["created_at", "2024-07-09 20:31:44.572897"], ["updated_at", "2024-07-09 20:31:44.572897"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors" for 127.0.0.1 at 2024-07-09 14:31:44 -0600
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  Rendered authors/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 494)
+  Rendered layout layouts/application.html.erb (Duration: 31.8ms | Allocations: 31836)
+Completed 200 OK in 45ms (Views: 40.1ms | ActiveRecord: 0.1ms | Allocations: 37568)
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.7ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 20:31:44.650664"], ["updated_at", "2024-07-09 20:31:44.650664"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (1.0ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["created_at", "2024-07-09 20:31:44.652668"], ["updated_at", "2024-07-09 20:31:44.652668"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors" for 127.0.0.1 at 2024-07-09 14:31:44 -0600
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  Rendered authors/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 156)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 790)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.6ms | Allocations: 1002)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.5ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "John Smith"], ["deceased", nil], ["age", nil], ["created_at", "2024-07-09 20:31:44.657965"], ["updated_at", "2024-07-09 20:31:44.657965"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors/482" for 127.0.0.1 at 2024-07-09 14:31:44 -0600
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"482"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 482], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 119)
+  Rendered layout layouts/application.html.erb (Duration: 0.4ms | Allocations: 750)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 1339)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.8ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 20:50:22.659497"], ["updated_at", "2024-07-09 20:50:22.659497"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.2ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["created_at", "2024-07-09 20:50:22.661247"], ["updated_at", "2024-07-09 20:50:22.661247"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors" for 127.0.0.1 at 2024-07-09 14:50:22 -0600
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  Rendered authors/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 493)
+  Rendered layout layouts/application.html.erb (Duration: 35.5ms | Allocations: 31864)
+Completed 200 OK in 50ms (Views: 45.2ms | ActiveRecord: 0.1ms | Allocations: 37596)
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.9ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "John Smith"], ["deceased", nil], ["age", nil], ["created_at", "2024-07-09 20:50:22.741517"], ["updated_at", "2024-07-09 20:50:22.741517"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors/485" for 127.0.0.1 at 2024-07-09 14:50:22 -0600
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"485"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 485], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 117)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | Allocations: 747)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.2ms | Allocations: 1345)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.8ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 20:52:13.757990"], ["updated_at", "2024-07-09 20:52:13.757990"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.2ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["created_at", "2024-07-09 20:52:13.759991"], ["updated_at", "2024-07-09 20:52:13.759991"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors" for 127.0.0.1 at 2024-07-09 14:52:13 -0600
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  Rendered authors/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 690)
+  Rendered layout layouts/application.html.erb (Duration: 38.5ms | Allocations: 31965)
+Completed 200 OK in 45ms (Views: 41.0ms | ActiveRecord: 0.1ms | Allocations: 37697)
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (5.2ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "John Smith"], ["deceased", nil], ["age", nil], ["created_at", "2024-07-09 20:52:13.833524"], ["updated_at", "2024-07-09 20:52:13.833524"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors/488" for 127.0.0.1 at 2024-07-09 14:52:13 -0600
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"488"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 488], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 117)
+  Rendered layout layouts/application.html.erb (Duration: 0.4ms | Allocations: 747)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.1ms | Allocations: 1345)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (1.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 20:59:19.697773"], ["updated_at", "2024-07-09 20:59:19.697773"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.2ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["created_at", "2024-07-09 20:59:19.700052"], ["updated_at", "2024-07-09 20:59:19.700052"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors" for 127.0.0.1 at 2024-07-09 14:59:19 -0600
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  Rendered authors/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 689)
+  Rendered layout layouts/application.html.erb (Duration: 39.4ms | Allocations: 32084)
+Completed 200 OK in 52ms (Views: 47.6ms | ActiveRecord: 0.1ms | Allocations: 37816)
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.4ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "John Smith"], ["deceased", nil], ["age", nil], ["created_at", "2024-07-09 20:59:19.777816"], ["updated_at", "2024-07-09 20:59:19.777816"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors/491" for 127.0.0.1 at 2024-07-09 14:59:19 -0600
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"491"}
+  [1m[36mAuthor Load (2.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 491], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (Duration: 20.0ms | Allocations: 1270)
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 1329)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 2.7ms | Allocations: 1941)
+  [1m[36mTRANSACTION (9.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.4ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 21:00:26.587848"], ["updated_at", "2024-07-09 21:00:26.587848"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.2ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["created_at", "2024-07-09 21:00:26.589145"], ["updated_at", "2024-07-09 21:00:26.589145"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors" for 127.0.0.1 at 2024-07-09 15:00:26 -0600
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  Rendered authors/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 689)
+  Rendered layout layouts/application.html.erb (Duration: 38.4ms | Allocations: 32037)
+Completed 200 OK in 51ms (Views: 47.2ms | ActiveRecord: 0.1ms | Allocations: 37769)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (49.4ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 21:00:26.665291"], ["updated_at", "2024-07-09 21:00:26.665291"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors/494" for 127.0.0.1 at 2024-07-09 15:00:26 -0600
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"494"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 494], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1270)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 1329)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms | Allocations: 1943)
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.4ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 21:00:59.226504"], ["updated_at", "2024-07-09 21:00:59.226504"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.2ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["created_at", "2024-07-09 21:00:59.227938"], ["updated_at", "2024-07-09 21:00:59.227938"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors" for 127.0.0.1 at 2024-07-09 15:00:59 -0600
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  Rendered authors/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 689)
+  Rendered layout layouts/application.html.erb (Duration: 38.7ms | Allocations: 31996)
+Completed 200 OK in 46ms (Views: 41.0ms | ActiveRecord: 0.1ms | Allocations: 37728)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.8ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 21:00:59.298045"], ["updated_at", "2024-07-09 21:00:59.298045"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors/497" for 127.0.0.1 at 2024-07-09 15:00:59 -0600
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"497"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 497], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1302)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 1361)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms | Allocations: 1975)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 21:05:30.003528"], ["updated_at", "2024-07-09 21:05:30.003528"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.2ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["created_at", "2024-07-09 21:05:30.004742"], ["updated_at", "2024-07-09 21:05:30.004742"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors" for 127.0.0.1 at 2024-07-09 15:05:30 -0600
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  Rendered authors/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 526)
+  Rendered layout layouts/application.html.erb (Duration: 41.6ms | Allocations: 31930)
+Completed 200 OK in 49ms (Views: 44.3ms | ActiveRecord: 0.1ms | Allocations: 37662)
+  [1m[36mTRANSACTION (35.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 21:05:30.119550"], ["updated_at", "2024-07-09 21:05:30.119550"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors/512" for 127.0.0.1 at 2024-07-09 15:05:30 -0600
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"512"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 512], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1302)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 1361)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms | Allocations: 1975)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.5ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 21:06:42.470344"], ["updated_at", "2024-07-09 21:06:42.470344"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.2ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["created_at", "2024-07-09 21:06:42.471857"], ["updated_at", "2024-07-09 21:06:42.471857"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors" for 127.0.0.1 at 2024-07-09 15:06:42 -0600
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  Rendered authors/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1616)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 1706)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.1ms | Allocations: 7394)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.2ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 21:06:42.523896"], ["updated_at", "2024-07-09 21:06:42.523896"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors/515" for 127.0.0.1 at 2024-07-09 15:06:42 -0600
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"515"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 515], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 364)
+  Rendered layout layouts/application.html.erb (Duration: 0.3ms | Allocations: 423)
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms | Allocations: 1029)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.2ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 21:08:00.512725"], ["updated_at", "2024-07-09 21:08:00.512725"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.2ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["created_at", "2024-07-09 21:08:00.513776"], ["updated_at", "2024-07-09 21:08:00.513776"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors" for 127.0.0.1 at 2024-07-09 15:08:00 -0600
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  Rendered authors/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1616)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 1706)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.1ms | Allocations: 7394)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 21:08:00.567739"], ["updated_at", "2024-07-09 21:08:00.567739"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors/518" for 127.0.0.1 at 2024-07-09 15:08:00 -0600
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"518"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 518], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 364)
+  Rendered layout layouts/application.html.erb (Duration: 0.3ms | Allocations: 423)
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.2ms | Allocations: 1029)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.2ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 21:08:57.375219"], ["updated_at", "2024-07-09 21:08:57.375219"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.1ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["created_at", "2024-07-09 21:08:57.376263"], ["updated_at", "2024-07-09 21:08:57.376263"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors" for 127.0.0.1 at 2024-07-09 15:08:57 -0600
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  Rendered authors/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 513)
+  Rendered layout layouts/application.html.erb (Duration: 37.6ms | Allocations: 31926)
+Completed 200 OK in 52ms (Views: 47.3ms | ActiveRecord: 0.1ms | Allocations: 37658)
+  [1m[36mTRANSACTION (14.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (3.3ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 21:08:57.476452"], ["updated_at", "2024-07-09 21:08:57.476452"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors/521" for 127.0.0.1 at 2024-07-09 15:08:57 -0600
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"521"}
+  [1m[36mAuthor Load (65.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 521], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1302)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 1361)
+Completed 500 Internal Server Error in 74ms (ActiveRecord: 65.4ms | Allocations: 1975)
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.4ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 21:09:44.782505"], ["updated_at", "2024-07-09 21:09:44.782505"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.2ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["created_at", "2024-07-09 21:09:44.783921"], ["updated_at", "2024-07-09 21:09:44.783921"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors" for 127.0.0.1 at 2024-07-09 15:09:44 -0600
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  Rendered authors/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 513)
+  Rendered layout layouts/application.html.erb (Duration: 43.0ms | Allocations: 31931)
+Completed 200 OK in 52ms (Views: 47.0ms | ActiveRecord: 0.1ms | Allocations: 37663)
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (45.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (59.6ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 21:09:44.865025"], ["updated_at", "2024-07-09 21:09:44.865025"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors/524" for 127.0.0.1 at 2024-07-09 15:09:44 -0600
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"524"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 524], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1302)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1361)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms | Allocations: 1975)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.4ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 21:10:35.602072"], ["updated_at", "2024-07-09 21:10:35.602072"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.2ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["created_at", "2024-07-09 21:10:35.603364"], ["updated_at", "2024-07-09 21:10:35.603364"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors" for 127.0.0.1 at 2024-07-09 15:10:35 -0600
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  Rendered authors/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 246)
+  Rendered layout layouts/application.html.erb (Duration: 33.0ms | Allocations: 31633)
+Completed 200 OK in 47ms (Views: 41.9ms | ActiveRecord: 0.0ms | Allocations: 37365)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (20.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (38.8ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 21:10:35.677711"], ["updated_at", "2024-07-09 21:10:35.677711"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors/527" for 127.0.0.1 at 2024-07-09 15:10:35 -0600
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"527"}
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 527], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1301)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 1360)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.9ms | Allocations: 2029)
+  [1m[36mTRANSACTION (31.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.4ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 21:10:46.091338"], ["updated_at", "2024-07-09 21:10:46.091338"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."name" = $1 AND "authors"."deceased" = $2 AND "authors"."age" = $3 LIMIT $4[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.2ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Robert Jordan"], ["deceased", false], ["age", 56], ["created_at", "2024-07-09 21:10:46.092632"], ["updated_at", "2024-07-09 21:10:46.092632"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors" for 127.0.0.1 at 2024-07-09 15:10:46 -0600
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  Rendered authors/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 246)
+  Rendered layout layouts/application.html.erb (Duration: 35.2ms | Allocations: 31523)
+Completed 200 OK in 48ms (Views: 43.4ms | ActiveRecord: 0.0ms | Allocations: 37255)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAuthor Create (0.4ms)[0m  [1m[32mINSERT INTO "authors" ("name", "deceased", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Brandon Sanderson"], ["deceased", false], ["age", 47], ["created_at", "2024-07-09 21:10:46.168559"], ["updated_at", "2024-07-09 21:10:46.168559"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/authors/530" for 127.0.0.1 at 2024-07-09 15:10:46 -0600
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"530"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 530], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1301)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | Allocations: 1360)
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms | Allocations: 2029)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m

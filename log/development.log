@@ -1,0 +1,87 @@
+Started GET "/authors" for ::1 at 2024-07-09 14:54:17 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering authors/index.html.erb within layouts/application
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors"[0m
+  ↳ app/views/authors/index.html.erb:1
+  Rendered authors/index.html.erb within layouts/application (Duration: 41.5ms | Allocations: 13513)
+  Rendered layout layouts/application.html.erb (Duration: 138.4ms | Allocations: 110974)
+Completed 200 OK in 167ms (Views: 116.1ms | ActiveRecord: 26.1ms | Allocations: 127903)
+
+
+Started GET "/authors/1" for ::1 at 2024-07-09 14:54:30 -0600
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (2.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 119)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 4060)
+Completed 200 OK in 80ms (Views: 10.6ms | ActiveRecord: 5.7ms | Allocations: 7077)
+
+
+Started GET "/authors/1" for ::1 at 2024-07-09 14:55:55 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 2323)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 2449)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 10.6ms | Allocations: 27982)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `author' for #<ActionView::Base:0x0000000000ad98>):
+    1: <h1>Author Details</h1>
+    2: <p>Name: <%= author.name %></p>
+    3: <p>Age: <%= author.age %></p>
+    4: <p>Deceased: <%= author.deceased %></p>
+    5: 
+  
+app/views/authors/show.html.erb:2
+Started GET "/authors/1" for ::1 at 2024-07-09 14:56:48 -0600
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 1050)
+  Rendered layout layouts/application.html.erb (Duration: 0.4ms | Allocations: 1142)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 7.4ms | Allocations: 6764)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `author' for #<ActionView::Base:0x0000000000e588>):
+    1: <h1>Author Details</h1>
+    2: <p>Name: <%= author.name %></p>
+    3: <p>Age: <%= author.age %></p>
+    4: <p>Deceased: <%= author.deceased %></p>
+  
+app/views/authors/show.html.erb:2
+Started GET "/authors/1" for ::1 at 2024-07-09 14:56:57 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/authors_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering authors/show.html.erb within layouts/application
+  Rendered authors/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1503)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | Allocations: 1629)
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 11.9ms | Allocations: 27167)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `author' for #<ActionView::Base:0x0000000000ad98>):
+    1: <h1>Author Details</h1>
+    2: <p>Name: <%= author.name %></p>
+    3: <p>Age: <%= author.age %></p>
+    4: <p>Deceased: <%= author.deceased %></p>
+  
+app/views/authors/show.html.erb:2
